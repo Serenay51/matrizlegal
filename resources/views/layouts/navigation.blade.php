@@ -25,6 +25,9 @@
                         {{ __('Suscripción Premium') }}
                     </x-nav-link>
                     @endif
+                    <x-nav-link :href="route('suggestions')" :active="request()->routeIs('suggestions')">
+                        {{ __('Sugerencias') }}
+                    </x-nav-link>
                 </div>
             </div>
 

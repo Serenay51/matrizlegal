@@ -195,4 +195,13 @@
             }, 5000); // Mostrar el popup 5 segundos después de cargar el dashboard
         @endif
     });
+
+    @if(session('success'))
+            Swal.fire({
+                title: '¡Éxito!',
+                text: "{{ session('success') }}",
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
+    @endif
 </script>

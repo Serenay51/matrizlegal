@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\LawController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -23,6 +24,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/update-admin-status', [UserController::class, 'updateAdminStatus'])->name('update.admin.status');
     Route::get('/search-laws', [LawController::class, 'search'])->name('laws.search');
     Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+    Route::get('/suggestions', function () {
+        return view('suggestions');
+    })->name('suggestions');
+    Route::post('/suggestions', [SuggestionController::class, 'store'])->name('suggestions.store');
 
     Route::middleware([AdminMiddleware::class])->group(function () {
         Route::get('/laws/create', [LawController::class, 'create'])->name('laws.create');
