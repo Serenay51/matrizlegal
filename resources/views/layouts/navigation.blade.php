@@ -28,6 +28,9 @@
                     <x-nav-link :href="route('suggestions')" :active="request()->routeIs('suggestions')">
                         {{ __('Sugerencias') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('compliance.search')" :active="request()->routeIs('compliance.search')">
+                        {{ __('¿Qué debo cumplir?') }}
+                    </x-nav-link>                    
                 </div>
             </div>
 

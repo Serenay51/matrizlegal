@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComplianceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
@@ -28,6 +29,8 @@ Route::middleware('auth')->group(function () {
         return view('suggestions');
     })->name('suggestions');
     Route::post('/suggestions', [SuggestionController::class, 'store'])->name('suggestions.store');
+    Route::get('/compliance', [ComplianceController::class, 'search'])->name('compliance.search');
+
 
     Route::middleware([AdminMiddleware::class])->group(function () {
         Route::get('/laws/create', [LawController::class, 'create'])->name('laws.create');
