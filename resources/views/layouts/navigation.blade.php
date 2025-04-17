@@ -97,6 +97,22 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Búsqueda de Leyes') }}
             </x-responsive-nav-link>
+            @if (Auth::user()->is_admin == 1)
+                <x-responsive-nav-link :href="route('laws.index')" :active="request()->routeIs('laws.index')">
+                    {{ __('Leyes') }}
+                </x-responsive-nav-link>
+            @endif
+            @if (Auth::user()->is_admin == 0)
+                <x-responsive-nav-link :href="route('payment.form')" :active="request()->routeIs('payment.form')">
+                    {{ __('Suscripción Premium') }}
+                </x-responsive-nav-link>
+            @endif
+            <x-responsive-nav-link :href="route('compliance.search')" :active="request()->routeIs('compliance.search')">
+                {{ __('¿Qué debo cumplir?') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('suggestions')" :active="request()->routeIs('suggestions')">
+                {{ __('Sugerencias') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
